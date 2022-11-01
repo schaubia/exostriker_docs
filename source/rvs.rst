@@ -28,7 +28,7 @@ There are 3 ways to load radial velocity (RV) data on exostriker.
 Fitting RV data
 ==================
 
-The radial velocity data can be analyzed utilizing either Levenberg-Marquardt (L-M) or Simplex algorithm, and either Keplerian or Dynamic model.
+The radial velocity data can be analyzed utilizing either Levenberg-Marquardt (L-M) or Simplex algorithms, and either Keplerian or Dynamic model.
 The periodicities in the RV signal are found using the Generalized Lomb-Scargle (GLS) periodogram which scans the data and fits a sinusoidal curve on it.
 GLS o-c provides GLS periodogram of the residuals. Fitting with LM algorithm provides information regarding where the data offset is, i.e. it finds the data mean velocity in [m/s]. 
 
