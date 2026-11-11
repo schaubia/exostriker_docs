@@ -1,18 +1,13 @@
 {
   "upstream_repo": "https://github.com/3fon3fonov/exostriker",
-  "documented_commit": "2e516d51cfcaaa4bc1fff4dc70aea47d44ac468c",
-  "documented_version": "0.97",
+  "documented_commit": "4c4cd314300ed5451466c12632cbb1385ee34dc4",
+  "documented_version": "0.97.1",
+  "manual_repo": "https://github.com/3fon3fonov/exostriker-manual",
+  "documented_manual_commit": "e28df8db49d37b70518f15e4d8a72f1ff35c0f26",
   "last_sync": "2026-11-11",
-  "pending_pages": [
-    "gui.rst",
-    "rvs.rst",
-    "transit.rst",
-    "rvtran.rst",
-    "otbfpu.rst",
-    "stability.rst",
-    "activity.rst",
-    "tutorials2.rst",
-    "credits.rst"
-  ],
-  "notes": "installation.rst and index.rst were updated from 0.77 to 0.97 in the first sync. Pages in pending_pages still describe 0.77 and need a full audit (max 2 per run)."
+  "pending_pages": [],
+  "notes": "source/ is the developer's manual (docs/source at documented_manual_commit) plus the pages in local_edits, which are our own additions for code changes not yet in his manual. When he changes a page in local_edits, merge by hand; when his manual covers our addition, drop it from local_edits.",
+  "local_edits": {
+    "source/qso-mode.rst": "QSO mode: GP labels show mag instead of m/s (exostriker/lib/qso.py, 0.97.1)"
+  }
 }
