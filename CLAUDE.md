@@ -65,7 +65,8 @@ If a folder already exists, run `git -C <folder> fetch` and
 ## Sync state
 
 `.exostriker-sync` (JSON) records which code commit/version and which manual
-commit our docs describe. Update it in the same PR as the doc changes.
+commit our docs describe, and `local_edits`: the pages where we added text for
+code changes not yet in his manual. Update it in the same PR as the doc changes.
 
 ## Style of the .rst pages
 

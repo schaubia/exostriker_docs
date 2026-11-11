@@ -18,10 +18,10 @@ from `.exostriker-sync`.
 Part A — the developer's manual:
 1. `git -C ../_manual_src log --oneline <documented_manual_commit>..HEAD -- docs/source`
 2. `git -C ../_manual_src diff --name-status <documented_manual_commit>..HEAD -- docs/source`
-3. For each changed page, check whether our `source/<same path>` was also edited
-   after the last sync: `git log --oneline <last_sync_date>.. -- source/<path>`
-   (use `last_sync` from `.exostriker-sync`). Mark it "copy" (only he changed it)
-   or "merge" (both changed it).
+3. For each changed page, check whether it is listed in `local_edits` in
+   `.exostriker-sync` (our own additions). Mark it "copy" (not listed: only he
+   changed it) or "merge" (listed: both changed it). Also report any page in
+   `local_edits` whose addition his manual now covers ("drop local edit").
 
 Part B — the code:
 1. `git -C ../_exostriker_src log --oneline <documented_commit>..HEAD`

@@ -6,5 +6,8 @@
   "documented_manual_commit": "e28df8db49d37b70518f15e4d8a72f1ff35c0f26",
   "last_sync": "2026-11-11",
   "pending_pages": [],
-  "notes": "source/ was imported verbatim from the developer's manual (docs/source at documented_manual_commit), which describes 0.97.1. From now on, his manual changes are copied in and code changes not yet in his manual are added by the agents."
+  "notes": "source/ is the developer's manual (docs/source at documented_manual_commit) plus the pages in local_edits, which are our own additions for code changes not yet in his manual. When he changes a page in local_edits, merge by hand; when his manual covers our addition, drop it from local_edits.",
+  "local_edits": {
+    "source/qso-mode.rst": "QSO mode: GP labels show mag instead of m/s (exostriker/lib/qso.py, 0.97.1)"
+  }
 }

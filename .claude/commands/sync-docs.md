@@ -13,14 +13,15 @@ at the first failure, reporting it.
 3. **Branch.** `git checkout main && git pull` then
    `git checkout -b docs-sync/<new_version>` (add `-2`, `-3`... if it exists).
 4. **Scout.** Use the change-scout agent with `documented_commit`,
-   `documented_manual_commit` and `last_sync`.
+   `documented_manual_commit` and `local_edits`.
 5. **Map.** Use the docs-mapper agent with the change report.
 6. **Write.** Use the docs-writer agent with the edit plan.
 7. **Verify.** Use the docs-verifier agent. If it returns FAIL, send the
    problems back to docs-writer and verify again (at most 2 rounds). If it
    still fails, open the PR as a draft and list the open problems.
 8. **Update the state.** In `.exostriker-sync`, set `documented_commit`,
-   `documented_version`, `documented_manual_commit` and `last_sync`. Write
+   `documented_version`, `documented_manual_commit` and `last_sync`; add every
+   page with our own code-change edits to `local_edits` (and remove dropped ones). Write
    `.sync-reports/<new_version>.md` with the change report, the verifier result
    and the screenshots to re-capture.
 9. **Commit and open a PR** to `schaubia/exostriker_docs` (base: `main`).
