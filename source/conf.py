@@ -83,7 +83,7 @@ exclude_patterns = []
 pygments_style = 'sphinx'
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = True
+todo_include_todos = False  # open questions stay in the .rst source, hidden on the site
 
 
 # -- Options for HTML output ----------------------------------------------
