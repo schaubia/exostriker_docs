@@ -1,260 +1,216 @@
 .. _installation:
 
-Linux
+Requirements
 ............................
 
-Prerequisites
+The Exo-Striker runs on **Linux**, **macOS** and **Windows** (10/11).
 
-1. To **install** the Exo-Striker, first please make sure that you have installed the following packages:
+1. **Python 3.10 or newer** is required. Use a separate environment (see below) instead of replacing your system Python.
 
-* csh
+2. Some parts of the tool are compiled on your computer, so you also need:
+
+* gcc (a C compiler)
 * gfortran
-* pip
+* csh
+* the Python development headers (on Linux usually a package named like ``python3.10-dev``), in case the Exo-Striker does not want to compile.
 
-
-2. Use **Python 3** for installing the Exo-Striker! The tool works with Python 2; however as of Jan 1, 2020, Python 2 is no longer being maintained and eventual problems may not be addressed.
-
-
-3. Do not uninstall the Python version which was default to your system, this may cause unexpected side effects. If you have an older version of Python, keep it and install the newer one as well. 
+3. All Python dependencies (numpy, scipy, PyQt6, rebound, batman, celerite, wotan, ttvfast, etc.) are installed **automatically** by ``pip``. The full list is in the ``pyproject.toml`` file of the `source repository <https://github.com/3fon3fonov/exostriker>`_.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Currently there are **three ways to install/run** the Exo-Striker:
-   
-* The **first way** is to **git clone** using the Linux command line:
- 
-``git clone https://github.com/3fon3fonov/exostriker``  
+Prepare an environment (recommended)
+......................................
 
-``cd exostriker``
+**Option A: virtual environment (without Anaconda)**
 
-and then **load the GUI**:    
+.. code-block:: bash
 
-``python3 exostriker_gui.py``
+   python3 -m venv .venv
+   source .venv/bin/activate
+   python -m pip install --upgrade pip
 
-**or** 
+On Windows, use ``py -m venv .venv`` and activate it with ``.venv\Scripts\activate`` in CMD, or ``.venv\Scripts\Activate.ps1`` in PowerShell.
 
-``./exostriker_gui.py``
+**Option B: Anaconda** (recommended especially for Windows users)
 
-This installation process clones the repository in a local folder and installs the tool locally.
+1. Download and install `Anaconda <https://www.anaconda.com/products/individual#download-section>`_.
+2. Create and activate an environment for the Exo-Striker:
 
-To update the tool:
+.. code-block:: bash
 
-``git pull``
+   conda create -n exostriker python=3.10
+   conda activate exostriker
+
+3. On Windows (and on some newer Apple M-chip Macs) Anaconda may not find GFortran. Install it inside the activated environment:
+
+.. code-block:: bash
+
+   conda install conda-forge::gfortran
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Installation
+............................
+
+There are **three ways to install/run** the Exo-Striker. They work on Linux, Windows and macOS, as long as Python and GFortran are installed.
+
+* The **first way (recommended)** is to install the version from **PyPI**:
+
+.. code-block:: bash
+
+   pip install exostriker
+
+or, for a specific Python version, e.g.:
+
+.. code-block:: bash
+
+   python3.10 -m pip install exostriker
+
+**This is all.**
 
 -------------------------------------------------------------------------
 
-* The **second way** to install the tool from the source:    
+* The **second way** is to install from the **source** code on GitHub:
 
-``git clone https://github.com/3fon3fonov/exostriker``
+.. code-block:: bash
 
-and then:    
+   git clone https://github.com/3fon3fonov/exostriker.git
+   cd exostriker
+   python -m pip install .
 
-``cd exostriker``
+For development, use ``python -m pip install -e .`` instead.
 
-``python3 setup.py install``
+-------------------------------------------------------------------------
 
-This command will initiate a global installation on your system.   
-  
-Then,      
+* The **third way** is to **run without installation**. Install the required dependencies in your active environment first, then:
 
-``python3 exostriker_gui.py``
+.. code-block:: bash
 
-This should start the Exo-Striker GUI  
+   git clone https://github.com/3fon3fonov/exostriker.git
+   cd exostriker
+   python3 -m exostriker
 
-----------------------------------------------------------------
-
-* and **third way** is to **pip3 install**:    
-
-``pip3 install git+https://github.com/3fon3fonov/exostriker``
-
-This command will initiate a global installation on your system.  
-   
-Then,     
-
-``python3 exostriker_gui.py``
-
-**or** 
-
-``exostriker``
-
-This should start the Exo-Striker GUI.
-
-
-In order to update the tool, when a new version is available, the syntax is:
-
-pip3 install git+https://github.com/3fon3fonov/exostriker -U
+Launch it from the repository root with ``python -m exostriker``; running ``gui.py`` directly bypasses the package entry point.
 
 .. note::
-	When installing and running for the first time, some additional libraries are being decompiled and it takes several minutes more to start the GUI.
+	When starting for the first time, the Fortran parts of the tool are compiled, and an update may trigger recompilation. The first start can take longer, so keep GFortran and the build tools installed.
 
------------------------------------------------------------------------------------------------------------------------------------------------------------
+**Optional: integrated AI chat**
 
-Generally, **you do not need to install anything if you already have all the required dependencies** for the tool to run.
-The dependency list, including the version of each dependency, can also be seen at the "setup.py" file.
+The Exo-Striker includes an optional AI chat. To install it:
 
-.. IMPORTANT::
-   List of required **dependencies** : 
+.. code-block:: bash
 
-    * numpy
-    * scipy
-    * matplotlib
-    * PyQt5
-    * jupyter
-    * pathos
-    * emcee  
-    * celerite
-    * qtconsole
-    * dynesty
-    * wotan 
-    * corner
-    * transitleastsquares
-    * ttvfast-python
-    
-In some occasions it will be necessary to manually install packages/modules such as tqdm, wotan, batman, etc, which usually depends on the Linux distribution and Python version.
+   python -m pip install "exostriker[chat]"
 
-To do so use pip3, eg.
+or ``python -m pip install ".[chat]"`` from the source folder. An **OpenAI API key** is required to use the chat.
 
-``pip3 install tqdm``
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-For more details visit `Common issues and solutions`_.
+Starting the GUI
+............................
 
+After installation, start the Exo-Striker with:
 
-.. tip::	
-	* Install the simple and extensible rxvt terminal emulator:
+.. code-block:: bash
 
-	See rxvt documentation here: https://wiki.archlinux.org/title/rxvt-unicode
+   exostriker
 
-	* Install Anaconda package which manages the dependencies and may resolve installation issues.
+or
 
-	See Anaconda documentation here: https://docs.anaconda.com/anaconda/install/.
-	
------------------------------------------------------------------------------------------------------
+.. code-block:: bash
 
-Windows 10&11
-...................
+   python -m exostriker
 
-Prerequisites:
+To create menu entries (and, on Windows, a Desktop link):
 
-1. **Windows subsystem for Windows - WSL & WSL2**
+.. code-block:: bash
 
-	Installation on Windows 10 and 11 works only troughs the "Windows Subsystem for Linux".
-	
-	Please follow this guide:
-	
-	`Install WSL <https://docs.microsoft.com/en-us/windows/wsl/install>`_
+   exostriker-desktop-create
 
-	
-	Follow all the steps carefully! This way you will be able to run all Linux native programs on your WINDOWS 10 & 11 bash shell, which is very useful in general!
+Then search for *Exostriker* in your menu.
 
-	Please install the Ubuntu 20.04 LTS !!!
-	
-2. **XServer**
+**Working directory and settings**
 
-	To make The Exo-Striker work, however, you also will need an XServer installed.
-	
-	Follow these instructions carefully:
+The ``exostriker`` launcher uses your **home directory** as its working directory on Linux, macOS and Windows. Settings are saved in ``~/.exostriker/ES_settings.json``, created from the default settings on first use.
 
-	`Install XServer <https://seanthegeek.net/234/graphical-linux-applications-bash-ubuntu-windows/>`_
-	
-3. **Update the Linux kernel**
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	After installing Ubuntu 20.04 LTS app on your Windows OS, open the app and update the Linux kernel:
+Updating and checking the version
+....................................
 
-	``sudo apt update``
-	
-	``sudo apt dist-upgrade -y``
-	
-	When done, write the following lines in the Linux Terminal:
+To update a pip installation:
 
-	``sudo apt install build-essential curl git gfortran gcc+ csh xterm``
-	
-	
-4. **Fix the Qt libraries**
+.. code-block:: bash
 
-	For some unknown reason, some qt binaries in Ubuntu 20.04+ are missing. Just in case, run all these commands:
-	
-	``sudo apt install libxcb-xinerama0``
-	
-	``sudo apt install libxkbcommon-x11-0``
-	
-	``sudo apt install qt5-default``
-	
-5. **Python3.8 and pip3.8**
-	
-	Python 3.8+ is strongly recommended!!! On your WSL on Windows and Ubuntu 20.04, you will likely have Python 3.8.2 installed, but to install the newest Python 3.8.13 (or later) alongside your system Python 3.8.2, you can try these instructions (for 18.04 but should be OK for 20.04):
-	
-	`Install Python <https://linuxize.com/post/how-to-install-python-3-8-on-ubuntu-18-04/>`_
-	
-	Let's assume, you now have Python3.8, then it is recommended to install pip3.8:
-		
-	``curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py``
-	
-	``python3.8 get-pip.py``
-	
-6. **Python-dev**
+   python -m pip install --upgrade exostriker
 
-	For yet another unknown reason, a fresh Ubuntu 20.04 does not include the Python Development files.
-	
-	``sudo apt install python3-dev``
-	
-	
-7. **Install Exo-Striker**
+If you installed from source, run ``git pull`` in the ``exostriker`` folder and install again with ``python -m pip install .``. Restart the Exo-Striker after updating.
 
-	At this point, your system should be clean of all problems preventing the Exo-Striker being installed. Keep in mind, your python3.8 system is likely quite "empty". To install all the dependencies in one-go, the recommended way is:
-	
-	``pip3.8 install git+https://github.com/3fon3fonov/exostriker --user``
-	
-	/for user installation -- recommended !!!!!!/
-	
-	Then just run:
-	
-	``exostriker``
-	
-.. NOTE :: 
-	Probably the GUI screen scaling will be 150%. Go to "Change the resolution of the display" and reduce it to 100% and the GUI window will look fine.
-	
-**Bonus tip**
+To check the installed version without starting the GUI:
 
-It is generally recommend to work with git clone / git pull to always get the new version - e.g.:
+.. code-block:: bash
 
-	``cd ~``
-	
-	``git clone https://github.com/3fon3fonov/exostriker``
-	
-	``cd exostriker``
-	
-	``python3.8 exostriker_gui.py``
+   python -c "from importlib.metadata import version; print(version('exostriker'))"
 
-	The latter command will open the GUI inside the root "exostriker" directory and will be easy to find your sessions and files. One can even rename the directory:
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	``mv exostriker exostriker_GL486``
-	
-	or
+Adding pip scripts to the PATH (without Anaconda)
+....................................................
 
-	``cp -r  exostriker exostriker_GL486``
-	
-	``cp -r  exostriker exostriker_GL876``
-	
-	``cp -r  exostriker exostriker_GL1148``
+If you do not use Anaconda and the ``exostriker`` command is not found, add the folder of the pip scripts to your system path. **This step is not necessary if you run without installation.**
 
-	etc.,
+**Linux:** add this line at the end of ``~/.bashrc`` (change ``USER`` to your user name):
 
-	Your analysis of GL486 will be stored in ~/exostriker_GL486. To work and/or update the repository:
+.. code-block:: bash
 
-	``cd exostriker_GL486``
-	
-	``git pull``
-	
-	``python3.8 exostriker_gui.py``
+   export PATH="${PATH}:/home/USER/.local/bin/"
 
-	If problems occur:
+The location can differ between Linux distributions and Python installations. If this does not work, try other paths such as ``/usr/local/bin``.
 
-	``python3.8 exostriker_gui.py -debug``
+**Windows:** open the menu and search for *path*, click *Edit the system environment variables*, then *Environment Variables...*. In *System variables* (not *User variables*), select *Path*, click *Edit* and add the ``Scripts`` folder of your Python installation, for example:
 
-	and open an issue on the `GitHub repository`_.
-	
+``C:\Users\USERNAME\AppData\Local\Programs\Python\Python311\Scripts``
 
- 
+The path changes with the Python version, so always check that it exists.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Windows 10&11 step by step (without Anaconda)
+...............................................
+
+1. **Python:** download a stable 64-bit Windows installer from `Python Windows Releases <https://www.python.org/downloads/windows/>`_ and install it. Add these two folders to the *Path* (as above), changing ``USERNAME`` and ``Python311`` to your values:
+
+	``C:\Users\USERNAME\AppData\Local\Programs\Python\Python311``
+
+	``C:\Users\USERNAME\AppData\Local\Programs\Python\Python311\Scripts``
+
+   In the Python folder, make a copy of ``python.exe`` in the same place and name it ``python3.11.exe``.
+
+2. **GFortran:** download the *x64* version of `WinLibs <https://winlibs.com>`_ (x64 POSIX **with** all the libraries). Unpack it, move the ``mingw64`` folder to ``C:\Program Files\`` and add ``C:\Program Files\mingw64\bin`` to the *Path*.
+
+3. **Microsoft C++ Build Tools** (needed for the TTVFast package): download the `Build Tools <https://visualstudio.microsoft.com/visual-cpp-build-tools/>`_ and, during installation, select *Desktop development with C++*.
+
+4. **Exo-Striker:** in CMD type:
+
+.. code-block:: bash
+
+   pip install exostriker
+
+If native compilation fails, check that the compiler and build tools are visible in the same terminal/environment you use to start the Exo-Striker, and read the reported compiler error.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Uninstall
+............................
+
+If you run the tool without installation, just delete the ``exostriker`` folder. Otherwise, first remove the menu entries (if you created them), then uninstall:
+
+.. code-block:: bash
+
+   exostriker-desktop-remove
+   pip uninstall exostriker
+
 ------------------------------------------------------------------------------------------------------------
 
 Common issues and solutions
@@ -262,11 +218,14 @@ Common issues and solutions
 
 If the GUI does not start after a successful installation, please try:
 
-``python3 exostriker_gui.py -debug``
+``exostriker -debug``  (or ``python -m exostriker -debug``)
 
 This command starts the GUI and at the same time outputs an error message with few guidelines, which are otherwise displayed in the 'stdout/stderr' tab of the GUI.
 
-1. Broken appearance of GUI under Windows 
+1. Broken appearance of GUI under Windows (WSL / X-server)
+
+.. todo:: This tip is for running the Exo-Striker through WSL and an X-server (the old Windows method). Check with the developer whether it is still needed now that native Windows installation works.
+
 
 In case there is a problem of the appearance of the GUI the problem could be 
 your DPI setup. On high DPI displays with Windows display scaling activated (>100%), the X-server DPI has to be set, otherwise, the Exo-Striker will not display correctly (text clipping).
