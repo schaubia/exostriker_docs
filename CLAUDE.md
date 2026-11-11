@@ -1,8 +1,12 @@
 # Exo-Striker documentation — rules for Claude
 
-This repository holds the Read the Docs manual for **The Exo-Striker**
-(https://exostriker-manual.readthedocs.io). The tool itself is developed by
-Trifon Trifonov at https://github.com/3fon3fonov/exostriker.
+This repository holds the Read the Docs manual for **The Exo-Striker**.
+It is published at **https://exostriker-docs.readthedocs.io** (Read the Docs
+project `exostriker_docs`), which rebuilds from `main` of this repo.
+The older site https://exostriker-manual.readthedocs.io is kept unchanged as a
+backup: never change, rebuild or link it as the main site.
+The tool itself is developed by Trifon Trifonov at
+https://github.com/3fon3fonov/exostriker.
 
 ## Hard rules (never break these)
 
