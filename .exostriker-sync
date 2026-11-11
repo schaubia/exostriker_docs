@@ -1,0 +1,18 @@
+{
+  "upstream_repo": "https://github.com/3fon3fonov/exostriker",
+  "documented_commit": "2e516d51cfcaaa4bc1fff4dc70aea47d44ac468c",
+  "documented_version": "0.97",
+  "last_sync": "2026-11-11",
+  "pending_pages": [
+    "gui.rst",
+    "rvs.rst",
+    "transit.rst",
+    "rvtran.rst",
+    "otbfpu.rst",
+    "stability.rst",
+    "activity.rst",
+    "tutorials2.rst",
+    "credits.rst"
+  ],
+  "notes": "installation.rst and index.rst were updated from 0.77 to 0.97 in the first sync. Pages in pending_pages still describe 0.77 and need a full audit (max 2 per run)."
+}
