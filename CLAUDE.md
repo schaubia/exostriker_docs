@@ -13,7 +13,7 @@ Trifon Trifonov at https://github.com/3fon3fonov/exostriker.
    `.exostriker-sync`, `.sync-reports/**`, `.readthedocs.yaml`,
    `requirements-docs.txt`, `README*`. Never touch `.claude/**` or `.git/**`.
 3. Every change goes to a **branch + Pull Request**. Never commit to `main`
-   or `main`, and never merge. The maintainer of these docs (Desislava Antonova)
+   directly, and never merge. The maintainer of these docs (Desislava Antonova)
    reviews and merges every PR herself.
 4. **Never invent facts.** Every statement about the tool (a menu name, a button,
    a parameter, a command, a dependency, a version) must be traceable to a file
