@@ -33,8 +33,8 @@ still calls this fractional depth; the native joint implementation's convention
 takes precedence. Omit these columns for a timing-only analysis.
 
 Enable timing/duration/depth components deliberately. Supply the required stellar
-density and radius ratio for summary observables. Initialize and inspect **TTVs**
-and **TDVs**, then fit using an appropriate backend. Reduce the integration step
+density and radius ratio for summary observables. Initialize and inspect **TTVs**,
+**Transit Depths** and **Transit Durations**, then fit using an appropriate backend. Reduce the integration step
 and compare predicted times to the measurement errors. Missing model events can
 signal a wrong epoch, numbering, planet assignment or non-transiting geometry.
 The dedicated native timing evaluator and plot selector are described in :doc:`api`.
@@ -62,6 +62,17 @@ Unchecked datasets can remain loaded and displayed, but are excluded from
 the fit score and the observation counts used for AIC/BIC and statistics.
 Choices are saved with the session. New imports are enabled by default;
 older sessions initially retain all previously used absolute datasets.
+
+The astrometric parameters are grouped under **Astrometric parameters**. The
+**Astrometric parametrisation** selector offers two radio buttons,
+**Standard** (selected by default) and **Cartesian**. The
+**Abs. Radial Velocity [km/s]** field is the systemic stellar radial velocity;
+its tooltip says it is used only with Cartesian astrometry.
+
+.. todo:: Ask the developer what the **Cartesian** parametrisation and the new
+   acceleration parameters mean, and how to choose between them. The GUI
+   tooltips only say that the Cartesian settings are "prepared for the
+   upcoming ExTRA interface".
 
 Use **Astr.** or **RV+Astr.**, initialize and inspect absolute and imaging plots,
 then fit through the supported astrometric/SciPy path. Native RV/transit joint

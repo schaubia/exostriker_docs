@@ -196,14 +196,17 @@ TTV → TTVs
 
 .. _gui-tab-Phot_o_c_timeseries_plot_2:
 
-TTV → TDVs
-----------
+TTV → Transit Depths
+--------------------
 
 .. figure:: images/current/tabs/Phot_o_c_timeseries_plot_2.png
-   :alt: Empty GUI placeholder with TTV → TDVs open and brief numbered annotations.
+   :alt: Empty GUI placeholder with TTV → Transit Depths open and brief numbered annotations.
    :width: 100%
 
    Empty GUI placeholder, awaiting an author-provided real example. Open the named tab to configure or inspect this part of the analysis. Initialize evaluates the model; Fit and sampling are separate actions.
+
+.. todo:: A **TTV → Transit Durations** tab now exists (es.ui, tab
+   ``duration_timeseries_tab``). Add an entry and a screenshot for it.
 
 .. _gui-tab-tab_197:
 
