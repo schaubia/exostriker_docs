@@ -106,6 +106,16 @@ Shells → Exo-Striker AI Chat
 
    Empty GUI placeholder, awaiting an author-provided real example. Open the named tab to configure or inspect this part of the analysis. Initialize evaluates the model; Fit and sampling are separate actions.
 
+The embedded **xterm** tab has a **README** button that opens a dialog with
+appearance and usage instructions. xterm is not installed by default on every
+Linux distribution. Install it with the package manager of your distribution:
+
+.. code-block:: bash
+
+   sudo apt install xterm      # Ubuntu / Debian
+   sudo dnf install xterm      # Fedora
+   sudo pacman -S xterm        # Arch Linux
+
 .. _gui-tab-tab_185:
 
 Extra Plots → Phased RV plots

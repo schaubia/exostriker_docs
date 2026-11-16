@@ -181,7 +181,9 @@ Accessories (5)
 **Shells** contains the embedded Jupyter console, pyqtgraph console, and optional
 AI chat when its dependency is available. Python changes are programmatic edits:
 check the active object and use **Edit → push Jupyter var. to GUI** to publish the
-intended fit. **Extra Plots → Phased RV plots** separates planetary signals;
+intended fit. **Extra Plots → Phased RV plots** separates planetary signals; its options
+include a slider that adjusts the folding period over ±10% of the fitted
+planetary period, in 0.1-day steps (display only, the fit is unchanged);
 **Mirrored plots** copies a selected scientific plot, with its styles and axes,
 without recomputing it. **Cross hair** reads coordinates; **to the Org. Plot**
 opens its source. Mirror zoom/export operates independently.
