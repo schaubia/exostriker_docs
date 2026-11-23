@@ -1,10 +1,10 @@
 {
   "upstream_repo": "https://github.com/3fon3fonov/exostriker",
-  "documented_commit": "57b265bb931f59775553e907f8e1477dbdbf141d",
+  "documented_commit": "8de245f0ae37a82c7d8af9d76b9e3dd4dc03cc81",
   "documented_version": "0.97.5",
   "manual_repo": "https://github.com/3fon3fonov/exostriker-manual",
   "documented_manual_commit": "e28df8db49d37b70518f15e4d8a72f1ff35c0f26",
-  "last_sync": "2026-11-16",
+  "last_sync": "2026-11-23",
   "pending_pages": [],
   "notes": "source/ is the developer's manual (docs/source at documented_manual_commit) plus the pages in local_edits, which are our own additions for code changes not yet in his manual. When he changes a page in local_edits, merge by hand; when his manual covers our addition, drop it from local_edits.",
   "local_edits": {
@@ -13,6 +13,7 @@
     "source/gui.rst": "Phased RV plots: period slider ±10%, 0.1-day steps (exostriker/lib/UI/rv_phase_options.ui, 0.97.5)",
     "source/tab-tools.rst": "xterm README button and install commands (exostriker/lib/UI/xterm_readme.ui, 0.97.5)",
     "source/tab-plots.rst": "TTV → TDVs renamed Transit Depths; todo for Transit Durations (es.ui, 0.97.5)",
-    "source/conf.py": "extensions = ['sphinx.ext.todo'] so .. todo:: notes build under -W (0.97.5)"
+    "source/conf.py": "extensions = ['sphinx.ext.todo'] so .. todo:: notes build under -W (0.97.5)",
+    "source/helper-windows.rst": "Cornerplots: stellar inputs for derived mass/semimajor axis/radius (exostriker/lib/UI/cornerplot_stellar_options.ui, 0.97.5 commit 8de245f)"
   }
 }
