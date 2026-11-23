@@ -64,7 +64,15 @@ Choose the sampled coordinates to display, their labels and presentation.
 **Truths as** selects reference markers: median, mean, mode, max-lnL sample,
 max-lnL GUI or no marker. A reference line is not an independent measurement.
 Derived mass, semimajor axis and radius require their underlying sampled
-coordinates and stellar assumptions. Solar/Jupiter/Earth choices change displayed
+coordinates and stellar assumptions.
+Enter the stellar mass, radius and their sigmas in
+**Stellar param. → RV scatter calculator**. For mass and semimajor axis, a
+sampled stellar mass takes precedence; otherwise the calculator mass is used
+when its sigma is nonzero, and then the model mass and errors. For radius,
+**Planet-radius R★ source** on **St. params** selects External (calculator),
+Automatic (calculator when σ > 0) or Model (fitted/model radius). These inputs
+propagate uncertainties; **Derive ρ★ from M★ and R★** is not required.
+Solar/Jupiter/Earth choices change displayed
 units. Flux-to-ppm changes the display scale. Derived h/k orbital coordinates
 and angular centering need the matching parameterization; do not interpret a
 wrap at 360 degrees as two physical modes without checking circular statistics.
